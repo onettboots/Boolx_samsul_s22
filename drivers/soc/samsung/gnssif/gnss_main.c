@@ -436,7 +436,7 @@ static int gnss_probe(struct platform_device *pdev)
 	struct io_device *iod;
 	struct link_device *ld;
 	unsigned int size;
-	int ret = 0;
+	//int ret = 0;
 
 	gif_info("Exynos GNSS interface driver %s\n", get_gnssif_driver_version());
 

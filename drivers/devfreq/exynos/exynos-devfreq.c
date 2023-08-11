@@ -1601,7 +1601,7 @@ static ssize_t show_alt_dvfs_info(struct device *dev,
 	return count;
 }
 
-#if defined(CONFIG_EXYNOS_ALT_DVFS) || defined(CONFIG_EXYNOS_ALT_DVFS_DEBUG_MODULE)
+#if defined(CONFIG_EXYNOS_ALT_DVFS_DEBUG) || defined(CONFIG_EXYNOS_ALT_DVFS_DEBUG_MODULE)
 /* Show Load Tracking Information */
 static ssize_t store_load_tracking(struct file *file, struct kobject *kobj,
 		struct bin_attribute *attr, char *buf,
@@ -1678,7 +1678,7 @@ static DEVICE_ATTR(user_hispeed_freq, 0640, show_user_hispeed_freq, store_user_h
 static DEVICE_ATTR(current_mode, 0640, show_current_mode, store_current_mode);
 static DEVICE_ATTR(default_mode, 0440, show_default_mode, NULL);
 static DEVICE_ATTR(alt_dvfs_info, 0440, show_alt_dvfs_info, NULL);
-#if defined(CONFIG_EXYNOS_ALT_DVFS) || defined(CONFIG_EXYNOS_ALT_DVFS_DEBUG_MODULE)
+#if defined(CONFIG_EXYNOS_ALT_DVFS_DEBUG) || defined(CONFIG_EXYNOS_ALT_DVFS_DEBUG_MODULE)
 static BIN_ATTR(load_tracking, 0640, show_load_tracking, store_load_tracking, 0);
 #endif
 #endif
@@ -1726,7 +1726,7 @@ static ssize_t time_in_state_show(struct device *dev,
 }
 static DEVICE_ATTR_RO(time_in_state);
 
-#if defined(CONFIG_EXYNOS_ALT_DVFS) || defined(CONFIG_EXYNOS_ALT_DVFS_DEBUG_MODULE)
+#if defined(CONFIG_EXYNOS_ALT_DVFS_DEBUG) || defined(CONFIG_EXYNOS_ALT_DVFS_DEBUG_MODULE)
 static struct bin_attribute *devfreq_interactive_sysfs_bin_entries[] = {
 	&bin_attr_load_tracking,
 	NULL,
@@ -1736,7 +1736,7 @@ static struct bin_attribute *devfreq_interactive_sysfs_bin_entries[] = {
 static struct attribute_group devfreq_delay_time_attr_group = {
 	.name = "interactive",
 	.attrs = devfreq_interactive_sysfs_entries,
-#if defined(CONFIG_EXYNOS_ALT_DVFS) || defined(CONFIG_EXYNOS_ALT_DVFS_DEBUG_MODULE)
+#if defined(CONFIG_EXYNOS_ALT_DVFS_DEBUG) || defined(CONFIG_EXYNOS_ALT_DVFS_DEBUG_MODULE)
 	.bin_attrs = devfreq_interactive_sysfs_bin_entries,
 #endif
 };

@@ -749,16 +749,16 @@ static void sec_ts_check_rawdata(struct work_struct *work)
 
 }
 
-static void dump_tsp_log(void)
+/*static void dump_tsp_log(void)
 {
-	pr_info("%s: %s %s: start\n", SEC_TS_I2C_NAME, SECLOG, __func__);
+	pr_info("%s: %s %s: start\n", SEC_TS_I2C_NAME, __func__);
 
 	if (p_ghost_check == NULL) {
-		pr_err("%s: %s %s: ignored ## tsp probe fail!!\n", SEC_TS_I2C_NAME, SECLOG, __func__);
+		pr_err("%s: %s %s: ignored ## tsp probe fail!!\n", SEC_TS_I2C_NAME, __func__);
 		return;
 	}
 	schedule_delayed_work(p_ghost_check, msecs_to_jiffies(100));
-}
+}*/
 #endif
 
 
@@ -2206,7 +2206,7 @@ static int sec_ts_probe(struct i2c_client *client, const struct i2c_device_id *i
 //	schedule_delayed_work(&ts->work_read_info, msecs_to_jiffies(5000));
 
 #if defined(CONFIG_TOUCHSCREEN_DUMP_MODE)
-	dump_callbacks.inform_dump = dump_tsp_log;
+	//dump_callbacks.inform_dump = dump_tsp_log;
 	INIT_DELAYED_WORK(&ts->ghost_check, sec_ts_check_rawdata);
 	p_ghost_check = &ts->ghost_check;
 #endif

@@ -11,7 +11,7 @@ config SEC_EXT
 	default y
 
 menuconfig SEC_DEBUG
-	tristate "Enable Samsung Debugging features"
+	bool "Enable Samsung Debugging features"
 	default n
 
 config SEC_REBOOT
